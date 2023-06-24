@@ -25,8 +25,8 @@ public class Main {
 
 
     public static void printAllEmployee() {
-        for (int i = 0; i < Main.employees.length; i++) {
-            Employee employee = Main.employees[i];
+        for (int i = 0; i < employees.length; i++) {
+            Employee employee = employees[i];
             System.out.println(employee.toString());
         }
     }
@@ -40,19 +40,19 @@ public class Main {
     }
 
     public static String searchMinSalary() {
-        Employee min1 = Main.employees[0];
+        Employee min1 = employees[0];
         int min = min1.getSalary();
-        for (int i = 0; i < Main.employees.length; i++) {
-            if (Main.employees[i].getSalary()< min) {
-                min = Main.employees[i].getSalary();
-                min1 = Main.employees[i];
+        for (int i = 0; i < employees.length; i++) {
+            if (employees[i].getSalary()< min) {
+                min = employees[i].getSalary();
+                min1 = employees[i];
             }
         }
        return "Минимальная зарплата " + min1.getLastname() + " "  + min1.getName()  + " " + min1.getMiddleName() + " " + min1.getSalary();
     }
 
     public static String searchMaxSalary() {
-        Employee max1 = Main.employees[0];
+        Employee max1 = employees[0];
         int max = max1.getSalary();
         for (int i = 0; i <employees.length; i++) {
             if (max < employees[i].getSalary()) {
@@ -65,18 +65,18 @@ public class Main {
     public static String  searchMiddleSalary() {
         double middle = 0;
         int sum = 0;
-        for (int i = 0; i < Main.employees.length; i++) {
-            middle = sumSalary()/employees.length;
+        for (int i = 0; i < employees.length; i++) {
+            middle =(double) sumSalary()/employees.length;
         }
         return "Среднее значение зарплат " + middle;
     }
 
 
     public static void printFullName() {
-        for (int i = 0; i < Main.employees.length; i++) {
-            System.out.print(Main.employees[i].getLastname() + " ");
-            System.out.print(Main.employees[i].getName() + " ");
-            System.out.print(Main.employees[i].getMiddleName());
+        for (int i = 0; i < employees.length; i++) {
+            System.out.print(employees[i].getLastname() + " ");
+            System.out.print(employees[i].getName() + " ");
+            System.out.print(employees[i].getMiddleName());
             System.out.println();
         }
     }
