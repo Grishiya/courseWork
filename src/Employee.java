@@ -5,7 +5,7 @@ public class Employee {
     private int department;
     private int salary;
     private int id;
-    private static int countId = 1;
+    private static int countId = 1; //статичный, потому что принадлежит классу
 
 
     public Employee(String lastname, String name, String middleName, int department, int salary) {

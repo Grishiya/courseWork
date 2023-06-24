@@ -15,25 +15,69 @@ public class Main {
         employees[8] = new Employee("Собачкина", "Мия", "Японопоповна", 2, 50);
         employees[9] = new Employee("Ким", "Намджуна", "В президенты", 3, 20_000);
 
-        System.out.println(employees[8]);
-        System.out.println();
+        printAllEmployee();
+        System.out.println(sumSalary());
+        System.out.println(searchMinSalary());
+        System.out.println(searchMaxSalary());
+        System.out.println(searchMiddleSalary());
+        printFullName();
+    }
 
-        employees[9].printAllEmployee();
-        System.out.println();
 
-        employees[9].printFullName();
-        System.out.println();
+    public static void printAllEmployee() {
+        for (int i = 0; i < Main.employees.length; i++) {
+            Employee employee = Main.employees[i];
+            System.out.println(employee.toString());
+        }
+    }
 
-        System.out.println("Сумма всех зарплат " + employees[9].sumSalary());
-        System.out.println();
+    public static int sumSalary() {
+        int sum = 0;
+        for (int i = 0; i < Main.employees.length; i++) {
+            sum += Main.employees[i].getSalary();
+        }
+        return sum;
+    }
 
-        employees[9].searchMinSalary();
-        System.out.println();
+    public static String searchMinSalary() {
+        Employee min1 = Main.employees[0];
+        int min = min1.getSalary();
+        for (int i = 0; i < Main.employees.length; i++) {
+            if (Main.employees[i].getSalary()< min) {
+                min = Main.employees[i].getSalary();
+                min1 = Main.employees[i];
+            }
+        }
+       return "Минимальная зарплата " + min1.getLastname() + " "  + min1.getName()  + " " + min1.getMiddleName() + " " + min1.getSalary();
+    }
 
-        employees[9].searchMaxSalary();
-        System.out.println();
+    public static String searchMaxSalary() {
+        Employee max1 = Main.employees[0];
+        int max = max1.getSalary();
+        for (int i = 0; i <employees.length; i++) {
+            if (max < employees[i].getSalary()) {
+                max = employees[i].getSalary();
+                max1 = employees[i];
+            }
+        }
+        return "Максимальная зарплата " + max1.getLastname() + " "  + max1.getName()  + " " + max1.getMiddleName() + " " + max1.getSalary();
+    }
+    public static String  searchMiddleSalary() {
+        double middle = 0;
+        int sum = 0;
+        for (int i = 0; i < Main.employees.length; i++) {
+            middle = sumSalary()/employees.length;
+        }
+        return "Среднее значение зарплат " + middle;
+    }
 
-        employees[9].searchMiddleSalary();
 
+    public static void printFullName() {
+        for (int i = 0; i < Main.employees.length; i++) {
+            System.out.print(Main.employees[i].getLastname() + " ");
+            System.out.print(Main.employees[i].getName() + " ");
+            System.out.print(Main.employees[i].getMiddleName());
+            System.out.println();
+        }
     }
 }
